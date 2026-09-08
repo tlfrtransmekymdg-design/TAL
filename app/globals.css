@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #F5F2EA;
+}
+
+body {
+  color: #2C2A26;
+}
+
+::selection {
+  background: #B77B4E;
+  color: white;
+}
+
+/* Barre de défilement discrète pour les chips de catégories */
+.chips-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.chips-scroll::-webkit-scrollbar-thumb {
+  background: #D8D2C4;
+  border-radius: 999px;
+}
