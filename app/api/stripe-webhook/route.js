@@ -6,7 +6,7 @@ import { BOOST_DAYS } from "@/lib/categories";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Stripe a besoin du corps brut (non parsé) pour vérifier la signature.
-export const config = { api: { bodyParser: false } };
+
 
 export async function POST(req) {
   const body = await req.text();
