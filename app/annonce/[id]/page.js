@@ -167,7 +167,43 @@ export default function DetailPage() {
                 {new Date(listing.boosted_until).toLocaleDateString("fr-FR")}
               </div>
             )}
-
-            <div className="flex gap-2">
+          <div className="flex gap-2">
+            {isMine ? (
+              <>
+                <button
+                  onClick={() => router.push(`/vendre?edit=${id}`)}
+                  className="flex-1 bg-white border border-[#EDE8DB] rounded-full py-2.5 text-sm font-medium flex items-center justify-center gap-1"
+                >
+                  <Pencil size={16} /> Modifier
+                </button>
+                {!confirmDelete ? (
+                  <button
+                    onClick={() => setConfirmDelete(true)}
+                    className="flex-1 bg-white border border-red-200 text-red-600 rounded-full py-2.5 text-sm font-medium flex items-center justify-center gap-1"
+                  >
+                    <Trash2 size={16} /> Supprimer
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleDelete}
+                    className="flex-1 bg-red-600 text-white rounded-full py-2.5 text-sm font-medium"
+                  >
+                    Confirmer la suppression
+                  </button>
+                )}
+              </>
+            ) : (
               <button
-                onClick={() =>
+                onClick={handleContact}
+                className="flex-1 bg-clay text-white rounded-full py-2.5 text-sm font-medium"
+              >
+                Contacter le vendeur
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
